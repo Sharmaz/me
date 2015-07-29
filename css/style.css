@@ -65,7 +65,7 @@ button:hover
 .CTA
 {
 /*	background: #E6DB74;
-*/	background-image: url('/images/desk.jpg');
+*/	background-image: url('../images/desk.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
