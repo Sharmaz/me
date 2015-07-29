@@ -1,1 +1,51 @@
-/* CSS */
+html{
+	background: #272822;
+	color: white;
+}
+h2 {
+	color: #F92772;
+}
+
+.Menu
+{
+	background: white;
+	margin: 0 0 1rem 0;
+	padding: 0;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+	.Menu-list
+	{
+	margin: 0;
+	padding: 0;
+	}
+
+		.Menu-element
+		{
+			display: inline-block;
+			margin: 0 0.5rem;
+			padding: 0;
+		}
+
+		.Menu-element a 
+		{
+				color: #A6E22D;
+				text-decoration: none;
+				vertical-align: bottom;
+		}
+		.Menu-element a:hover
+		{
+			color: #AE81FF;
+		}
+
+.CTA
+{
+	background-image: url('/images/');
+}
+	.CTA-title
+	{
+		color: #66D9EF;
+	}
