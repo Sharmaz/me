@@ -1,19 +1,38 @@
-html{
+html
+{
 	background: #272822;
 	color: white;
 }
-h2 {
+h2 
+{
 	color: #F92772;
+}
+
+button
+{
+	background: #AE81FF;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 4px #754cc3;
+	height: 2rem;
+
+}
+button:hover
+{
+	background: #A6E22D;
+	box-shadow: 0px 4px #85b81e;
+
 }
 
 .Menu
 {
 	background: #272822;
+	font-size: 1.2rem;
 	height: 2rem;
 	margin: 0;
 	padding: 1rem 0 0 0;
-	text-align: center;
 	position: fixed;
+	text-align: center;
 	top: 0;
 	width: 100%;
 	vertical-align: bottom;
@@ -88,3 +107,33 @@ h2 {
 		{
 		text-align: justify;
 		}
+
+.Footer
+{
+	text-align: center;
+	border-bottom: 2px dashed #E6DB74;
+	border-top: 2px dashed #E6DB74;
+	margin: 0;
+	padding: 0;
+}
+	.Footer-item
+	{
+		display: inline-block; 
+		margin: 0rem 1rem;
+		text-align: center;
+		vertical-align: top;
+	}
+		.Footer-title
+		{
+			font-size: 1.3rem;
+		}
+		.Footer-description
+		{
+
+		}
+	.Submenu
+	{
+		text-align: center;
+		margin: 0 auto;
+		padding: 0;
+	}
