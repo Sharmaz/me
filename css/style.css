@@ -1,3 +1,7 @@
+*
+{
+		font-family: 'Inconsolata', ;
+}
 html
 {
 	background: #272822;
@@ -162,17 +166,17 @@ button:hover
 .Work
 {
 	width: 100%;
-	margin: 0 1rem;
+	margin: 0 auto;
 	padding: 0;
 }
 	.Work-sTitle
 	{
-		margin: 0;
+		margin: 0 1rem;
 		padding: 0;
 	}
 		.Work-element
 		{
-			margin: 0;
+			margin: 0 1rem;
 			padding: 0;
 		}
 			.Work-title
@@ -204,11 +208,45 @@ button:hover
 
 			.Work-image img
 			{
-				width: 70%;
+				width: 100%;
 				margin: 0;
 				padding: 0;
 			}
+@media screen and (min-width: 768px){
+	.Work
+	{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		display: -webkit-flex;
+		-webkit-justify-content: space-between;
+		-webkit-flex-flow: row wrap; 
+		margin: 0 auto;
+		padding: 0;
+	}
+	.Work-element
+	{
+		width: 45%;
+	}
+	.Work-description
+	{
 
+	}
+	.Work-list
+	{
+
+	}
+	.Work-image
+	{
+		width: 100%;
+	}
+}
+@media screen and (min-width: 1024px){
+	.Work-element
+	{
+		width: 30%;
+	}
+}
 .Skills
 {
 
