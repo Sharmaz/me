@@ -6,15 +6,21 @@ html
 h2 
 {
 	color: #F92772;
-}
+	font-size: 2rem;
 
+}
+h3 
+{
+	color: #F92772;
+	font-size: 1.5rem;
+}
 button
 {
 	background: #AE81FF;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0px 4px #754cc3;
-	height: 2rem;
+	height: 2.5rem;
 
 }
 button:hover
@@ -27,7 +33,7 @@ button:hover
 .Menu
 {
 	background: #272822;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	height: 2rem;
 	margin: 0;
 	padding: 1rem 0 0 0;
@@ -48,7 +54,7 @@ button:hover
 		.Menu-element
 		{
 			display: inline-block;
-			margin: 0 0.5rem;
+			margin: 0 0.2rem;
 			padding: 0;
 		}
 
@@ -61,6 +67,18 @@ button:hover
 		{
 			color: #AE81FF;
 		}
+
+@media screen and (min-width: 768px){
+	.Menu
+	{
+		font-size: 1.5rem;
+	}
+	.Menu-element
+	{
+		margin: 0 1rem;
+	}
+
+}
 
 .CTA
 {
@@ -84,20 +102,40 @@ button:hover
 	.CTA-title
 	{
 		color: white;
-		margin: 0 0 0 0;
+		font-size: 1.8rem;
+		margin: 0;
 		padding: 0.5rem 0 2.5rem 0;
 		text-align: center;
 		text-shadow: 1px 1px 2px black;
 		vertical-align: middle;
 	}
+@media screen and (min-width: 768px){
 
+		.CTA-title
+		{
+			font-size: 3rem;
+		}
+}
+@media screen and (min-width: 1024px){
+	.CTA
+	{
+		height: 100%;
+	}
+		.CTA-image
+		{
+			width: 20%;
+			margin: 1rem 40% 0 40%;
+
+		}
+
+}
 .Description
 {
 	width: 100%;
 }
 	.Description-item
 	{
-		margin: 0 2rem;
+		margin: 0 1rem;
 	}
 		.Description-title
 		{
@@ -107,17 +145,29 @@ button:hover
 		{
 		text-align: justify;
 		}
+@media screen and (min-width: 768px){
 
+	.Description
+	{
+		margin: 0 auto;
+	}
+	.Description-item
+	{
+		display: inline-block;
+		vertical-align: top;
+		width: 45%;
+
+	}
+}
 .Footer
 {
 	text-align: center;
-	border-bottom: 2px dashed #E6DB74;
-	border-top: 2px dashed #E6DB74;
-	margin: 0;
+	margin: 1rem 0;
 	padding: 0;
 }
 	.Footer-item
 	{
+		border-bottom: 2px dashed #E6DB74;
 		display: inline-block; 
 		margin: 0rem 1rem;
 		text-align: center;
@@ -131,9 +181,30 @@ button:hover
 		{
 
 		}
+		.Footer-description a
+		{
+			color: #A6E22D;
+		}
+
+		.SN
+		{
+			padding-bottom: 1.2rem;
+		}
+@media screen and (min-width: 768px){
+	.Footer-item
+	{
+		margin: 0 2rem;
+	}
+}
 	.Submenu
 	{
 		text-align: center;
-		margin: 0 auto;
+		margin: 1rem 0;
 		padding: 0;
+		width: 100%;
 	}
+		.Submenu ul
+		{
+			margin: 0;
+			padding: 0;
+		}
