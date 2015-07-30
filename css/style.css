@@ -162,28 +162,53 @@ button:hover
 .Work
 {
 	width: 100%;
+	margin: 0 1rem;
+	padding: 0;
 }
 	.Work-sTitle
 	{
-		margin: 0 1rem;
-
+		margin: 0;
+		padding: 0;
 	}
 		.Work-element
 		{
-			margin: 0 1rem;
+			margin: 0;
+			padding: 0;
 		}
 			.Work-title
 			{
 				color: #AE81FF;
-			}
-			.Work-image img
-			{
-				width: 70%;
+				margin: 1rem 0;
+				padding: 0;
 			}
 			.Work-description
 			{
+				margin: 0;
+				padding: 0;
+			}
+			.Work-list
+			{
+				margin: 1rem;
+				padding: 0;
+			}
+			.Work-listItem
+			{
 
 			}
+			.Work-image
+			{
+				margin: 0;
+				padding: 0;
+
+			}
+
+			.Work-image img
+			{
+				width: 70%;
+				margin: 0;
+				padding: 0;
+			}
+
 .Skills
 {
 
