@@ -166,12 +166,12 @@ button:hover
 .Work
 {
 	width: 100%;
-	margin: 0 auto;
+	margin: 1rem auto;
 	padding: 0;
 }
 	.Work-sTitle
 	{
-		margin: 0 1rem;
+		margin: 2rem 1rem 0 1rem;
 		padding: 0;
 	}
 		.Work-element
@@ -247,18 +247,23 @@ button:hover
 		width: 30%;
 	}
 }
+
 .Skills
 {
-
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
 }
 
 	.Skills-sTitle
 	{
-
+		margin: 2rem 1rem 0 1rem;
+		padding: 0;
 	}
 		.Skills-element
 		{
-
+			margin: 0 1rem;
+			padding: 0;
 		}
 		.Skills-title
 		{
@@ -268,15 +273,19 @@ button:hover
 
 .Hobbies
 {
-
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
 }
 	.Hobbies-sTitle
 	{
-
+		margin: 2rem 1rem 0 1rem;
+		padding: 0;
 	}
 		.Hobbies-element
 		{
-
+			margin: 0 1rem;
+			padding: 0;
 		}
 		.Hobbies-title
 		{
