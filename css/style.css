@@ -159,6 +159,66 @@ button:hover
 
 	}
 }
+.Work
+{
+	width: 100%;
+}
+	.Work-sTitle
+	{
+		margin: 0 1rem;
+
+	}
+		.Work-element
+		{
+			margin: 0 1rem;
+		}
+			.Work-title
+			{
+				color: #AE81FF;
+			}
+			.Work-image img
+			{
+				width: 70%;
+			}
+			.Work-description
+			{
+
+			}
+.Skills
+{
+
+}
+
+	.Skills-sTitle
+	{
+
+	}
+		.Skills-element
+		{
+
+		}
+		.Skills-title
+		{
+			color: #AE81FF;
+
+		}
+
+.Hobbies
+{
+
+}
+	.Hobbies-sTitle
+	{
+
+	}
+		.Hobbies-element
+		{
+
+		}
+		.Hobbies-title
+		{
+			color: #AE81FF;	
+		}
 .Footer
 {
 	text-align: center;
