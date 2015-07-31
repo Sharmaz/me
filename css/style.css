@@ -227,6 +227,7 @@ button:hover
 	.Work-element
 	{
 		width: 45%;
+
 	}
 	.Work-description
 	{
@@ -270,7 +271,30 @@ button:hover
 			color: #AE81FF;
 
 		}
-
+@media screen and (min-width: 768px){
+	.Skills
+	{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		display: -webkit-flex;
+		-webkit-justify-content: space-between;
+		-webkit-flex-flow: row wrap; 
+		margin: 0 auto;
+		padding: 0;
+	}
+		.Skills-element
+		{
+			width: 45%;
+			vertical-align: top;
+		}
+}
+@media screen and (min-width: 1024px){
+	.Skills-element
+	{
+		width: 30%;
+	}
+}
 .Hobbies
 {
 	width: 100%;
