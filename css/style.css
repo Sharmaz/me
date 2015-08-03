@@ -214,6 +214,14 @@ button:hover
 				margin: 0;
 				padding: 0;
 			}
+			.Work-url
+			{
+				color: #66D9EF ;
+			}
+			.Work-link
+			{
+				color: #E6DB74;
+			}
 @media screen and (min-width: 768px){
 	.Work
 	{
@@ -344,11 +352,14 @@ button:hover
 		{
 
 		}
-		.Footer-description a
+		.Footer-socialLinks 
 		{
-			color: #A6E22D;
+			color: #E6DB74;
 		}
-
+		.Footer-socialLinks a:hover
+		{
+			color: ;
+		}
 		.SN
 		{
 			padding-bottom: 1.2rem;
