@@ -104,7 +104,7 @@ export default defineConfig([
       'no-param-reassign': 'error',
       'no-useless-escape': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'spaced-comment': ['error', 'always'],
+      'spaced-comment': ['error', 'always', { markers: ['/'] }],
       camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
       'new-cap': ['error', { newIsCap: true, capIsNew: false }],
       'no-shadow': 'off',
