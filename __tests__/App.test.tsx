@@ -1,11 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import App from '../src/App';
 
-test('App component render', async () => {
+test('renders the enchiladas counter button', () => {
   render(<App />);
+  expect(screen.getByRole('button')).toHaveTextContent('Enchiladas 0');
+});
 
-  expect(screen.getByRole('button')).toHaveTextContent('count');
+test('increments the counter on click', () => {
+  render(<App />);
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(button).toHaveTextContent('Enchiladas 1');
 });
