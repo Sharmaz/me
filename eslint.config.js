@@ -1,29 +1,130 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 import pluginJest from 'eslint-plugin-jest';
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  { plugins: { jest: pluginJest }, },
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: { globals: { ...globals.browser, ...globals.jest } } },
+  { plugins: { jest: pluginJest } },
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'], plugins: { js }, extends: ['js/recommended'] },
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'], languageOptions: { globals: { ...globals.browser, ...globals.jest } } },
   tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
   {
-		rules: {
+    rules: {
       ...pluginJest.configs.recommended.rules,
-			"react/react-in-jsx-scope": 0,
-      "react/jsx-uses-react": 0
-		},
-	},
-  {
-    settings: {
-      react: {
-        version: "detect",
-      },
     },
   },
-  globalIgnores(["**/coverage/**", "**/dist/**", "**/*.cjs"]),
+  {
+    rules: {
+      indent: [
+        'error',
+        2,
+        {
+          SwitchCase: 1,
+          VariableDeclarator: 1,
+          outerIIFEBody: 1,
+          MemberExpression: 1,
+          FunctionDeclaration: { parameters: 1, body: 1 },
+          FunctionExpression: { parameters: 1, body: 1 },
+          CallExpression: { arguments: 1 },
+          ArrayExpression: 1,
+          ObjectExpression: 1,
+          ImportDeclaration: 1,
+          flatTernaryExpressions: false,
+          ignoreComments: false,
+          ignoredNodes: [
+            'TemplateLiteral *',
+            'JSXElement',
+            'JSXElement > *',
+            'JSXAttribute',
+            'JSXIdentifier',
+            'JSXNamespacedName',
+            'JSXMemberExpression',
+            'JSXSpreadAttribute',
+            'JSXExpressionContainer',
+            'JSXOpeningElement',
+            'JSXClosingElement',
+            'JSXFragment',
+            'JSXOpeningFragment',
+            'JSXClosingFragment',
+            'JSXText',
+            'JSXEmptyExpression',
+            'JSXSpreadChild',
+          ],
+          offsetTernaryExpressions: true,
+        },
+      ],
+      quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
+      'quote-props': ['error', 'as-needed'],
+      'prefer-template': 'error',
+      'template-curly-spacing': ['error', 'never'],
+      semi: ['error', 'always'],
+      'comma-dangle': [
+        'error',
+        {
+          arrays: 'always-multiline',
+          objects: 'always-multiline',
+          imports: 'always-multiline',
+          exports: 'always-multiline',
+          functions: 'always-multiline',
+        },
+      ],
+      'comma-spacing': ['error', { before: false, after: true }],
+      'object-curly-spacing': ['error', 'always'],
+      'array-bracket-spacing': ['error', 'never'],
+      'space-in-parens': ['error', 'never'],
+      'space-before-blocks': 'error',
+      'space-infix-ops': 'error',
+      'keyword-spacing': ['error', { before: true, after: true }],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'block-spacing': ['error', 'always'],
+      'computed-property-spacing': ['error', 'never'],
+      'func-call-spacing': ['error', 'never'],
+      'no-multi-spaces': 'error',
+      'no-whitespace-before-property': 'error',
+      'no-trailing-spaces': 'error',
+      'arrow-parens': ['error', 'always'],
+      'arrow-spacing': ['error', { before: true, after: true }],
+      'arrow-body-style': ['error', 'as-needed'],
+      'prefer-arrow-callback': ['error', { allowNamedFunctions: false }],
+      'no-confusing-arrow': ['error', { allowParens: true }],
+      'implicit-arrow-linebreak': ['error', 'beside'],
+      'eol-last': ['error', 'always'],
+      'padded-blocks': ['error', 'never'],
+      'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+      'newline-per-chained-call': ['error', { ignoreChainWithDepth: 4 }],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'object-shorthand': ['error', 'always'],
+      'prefer-destructuring': ['error', { object: true, array: false }],
+      'dot-notation': 'error',
+      eqeqeq: ['error', 'always', { null: 'ignore' }],
+      'no-duplicate-imports': 'error',
+      'no-lonely-if': 'error',
+      'no-param-reassign': 'error',
+      'no-useless-escape': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'spaced-comment': ['error', 'always'],
+      camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
+      'new-cap': ['error', { newIsCap: true, capIsNew: false }],
+      'no-shadow': 'off',
+      'no-use-before-define': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-shadow': 'error',
+      '@typescript-eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          vars: 'all',
+          args: 'after-used',
+          ignoreRestSiblings: true,
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+  globalIgnores(['**/coverage/**', '**/dist/**', '**/*.cjs']),
 ]);
