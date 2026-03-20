@@ -1,6 +1,7 @@
 export const orbVertexShader = /* glsl */`
   uniform float uTime;
   uniform vec2  uMouse;
+  uniform float uScroll;
 
   varying vec3  vNormal;
   varying vec3  vViewDir;
@@ -91,6 +92,15 @@ export const orbVertexShader = /* glsl */`
     float disp     = n * 0.28;
     vec3 displaced = pos + normalize(position) * disp;
 
+    // Unique scatter direction per vertex (stable — no time dependency)
+    vec3 scatterDir = normalize(vec3(
+      snoise(position * 4.1),
+      snoise(position * 4.1 + vec3(100.0, 0.0, 0.0)),
+      snoise(position * 4.1 + vec3(0.0, 100.0, 0.0))
+    ));
+    float scatter = uScroll * uScroll * 14.0;
+    displaced = mix(displaced, displaced + scatterDir * scatter, uScroll);
+
     vDisp    = n;
     vNormal  = normalize(normalMatrix * normal);
     vViewDir = normalize(-(modelViewMatrix * vec4(displaced, 1.0)).xyz);
@@ -101,6 +111,7 @@ export const orbVertexShader = /* glsl */`
 
 export const orbFragmentShader = /* glsl */`
   uniform float uTime;
+  uniform float uScroll;
 
   varying vec3  vNormal;
   varying vec3  vViewDir;
@@ -130,7 +141,7 @@ export const orbFragmentShader = /* glsl */`
     float pulse = 0.5 + 0.5 * sin(uTime * 0.7);
     col += magenta * fr * fr * pulse * 0.30;
 
-    float alpha = mix(0.60, 1.0, fr);
+    float alpha = mix(0.60, 1.0, fr) * max(0.0, 1.0 - uScroll * 1.8);
 
     gl_FragColor = vec4(col, alpha);
   }

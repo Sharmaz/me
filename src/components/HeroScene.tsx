@@ -10,18 +10,22 @@ const Orb = () => {
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
     uMouse: { value: new THREE.Vector2(0, 0) },
+    uScroll: { value: 0 },
   }), []);
 
   useFrame(({ clock, pointer }) => {
+    const scrollProgress = Math.min(window.scrollY / (window.innerHeight * 0.55), 1);
     uniforms.uTime.value = clock.getElapsedTime();
+    uniforms.uScroll.value = scrollProgress;
     uniforms.uMouse.value.lerp(
       new THREE.Vector2(pointer.x, pointer.y),
       0.04,
     );
 
     if (meshRef.current) {
-      meshRef.current.rotation.y = clock.getElapsedTime() * 0.06;
-      meshRef.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.04) * 0.08;
+      const t = clock.getElapsedTime();
+      meshRef.current.rotation.y = t * 0.06;
+      meshRef.current.rotation.x = Math.sin(t * 0.04) * 0.08;
     }
   });
 
@@ -50,10 +54,15 @@ interface RingProps {
 
 const Ring = ({ positions, tilt, speed, opacity = 0.45, size = 0.02, color = '#ffffff' }: RingProps) => {
   const ref = useRef<THREE.Points>(null);
+  const matRef = useRef<THREE.PointsMaterial>(null);
 
   useFrame(({ clock }) => {
+    const scrollProgress = Math.min(window.scrollY / (window.innerHeight * 0.55), 1);
     if (ref.current) {
       ref.current.rotation.y = clock.getElapsedTime() * speed;
+    }
+    if (matRef.current) {
+      matRef.current.opacity = opacity * Math.max(0, 1 - scrollProgress * 2);
     }
   });
 
@@ -66,6 +75,7 @@ const Ring = ({ positions, tilt, speed, opacity = 0.45, size = 0.02, color = '#f
         />
       </bufferGeometry>
       <pointsMaterial
+        ref={matRef}
         color={color}
         size={size}
         transparent
