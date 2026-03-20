@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -76,7 +76,7 @@ const ParticleField = () => {
   const count = 2800;
 
   const uniforms = useMemo(() => ({
-    uTime:  { value: 0 },
+    uTime: { value: 0 },
     uMouse: { value: new THREE.Vector2(0, 0) },
   }), []);
 
@@ -84,7 +84,7 @@ const ParticleField = () => {
     const pos = new Float32Array(count * 3);
     const idx = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      pos[i * 3]     = (Math.random() - 0.5) * viewport.width  * 3.0;
+      pos[i * 3] = (Math.random() - 0.5) * viewport.width * 3.0;
       pos[i * 3 + 1] = (Math.random() - 0.5) * viewport.height * 3.0;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 8.0;
       idx[i] = i;
@@ -104,7 +104,7 @@ const ParticleField = () => {
     <points>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-        <bufferAttribute attach="attributes-aIndex"   args={[indices,    1]} />
+        <bufferAttribute attach="attributes-aIndex" args={[indices, 1]} />
       </bufferGeometry>
       <shaderMaterial
         vertexShader={fieldVertexShader}

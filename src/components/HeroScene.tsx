@@ -79,10 +79,10 @@ const Ring = ({ positions, tilt, speed, opacity = 0.45, size = 0.02, color = '#f
 const OrbitalRings = () => {
   const rings = useMemo(() => {
     const configs = [
-      { count: 110, radius: 1.95, spread: 0.10, tilt: 0.30,  speed: 0.040,  opacity: 0.60, size: 0.020, color: '#ff14a0' },
-      { count: 80,  radius: 2.50, spread: 0.12, tilt: 1.10,  speed: -0.028, opacity: 0.45, size: 0.016, color: '#8000ff' },
-      { count: 65,  radius: 2.70, spread: 0.10, tilt: 0.75,  speed: 0.022,  opacity: 0.50, size: 0.018, color: '#ffcc00' },
-      { count: 55,  radius: 3.00, spread: 0.08, tilt: -0.58, speed: 0.018,  opacity: 0.30, size: 0.013, color: '#00dfff' },
+      { count: 110, radius: 1.95, spread: 0.10, tilt: 0.30, speed: 0.040, opacity: 0.60, size: 0.020, color: '#ff14a0' },
+      { count: 80, radius: 2.50, spread: 0.12, tilt: 1.10, speed: -0.028, opacity: 0.45, size: 0.016, color: '#8000ff' },
+      { count: 65, radius: 2.70, spread: 0.10, tilt: 0.75, speed: 0.022, opacity: 0.50, size: 0.018, color: '#ffcc00' },
+      { count: 55, radius: 3.00, spread: 0.08, tilt: -0.58, speed: 0.018, opacity: 0.30, size: 0.013, color: '#00dfff' },
     ];
 
     return configs.map(({ count, radius, spread, tilt, speed, opacity, size, color }) => {
