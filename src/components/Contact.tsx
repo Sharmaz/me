@@ -13,12 +13,8 @@ const Contact = ({ email }: ContactProps) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from([headingRef.current, linkRef.current], {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+        opacity: 0, y: 40, duration: 0.9, ease: 'power3.out', stagger: 0.2,
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' },
       });
     }, sectionRef);
 
@@ -29,9 +25,8 @@ const Contact = ({ email }: ContactProps) => {
     <section ref={sectionRef} id="contact" className="relative py-40 px-6 text-center overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-linear-to-b from-transparent via-white/20 to-transparent" />
 
-      {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[300px] rounded-full bg-[#a78bfa]/10 blur-3xl" />
+        <div className="w-150 h-75 rounded-full bg-[#a78bfa]/10 blur-3xl" />
       </div>
 
       <div className="relative max-w-3xl mx-auto">

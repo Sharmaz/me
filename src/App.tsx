@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import usePortfolio from './hooks/usePortfolio';
 import useLenis from './hooks/useLenis';
@@ -19,6 +20,13 @@ function App() {
 
   useLenis();
 
+  // Recalculate ScrollTrigger positions after sections mount with real content
+  useEffect(() => {
+    if (!data) return;
+    const id = setTimeout(() => ScrollTrigger.refresh(), 100);
+    return () => clearTimeout(id);
+  }, [data]);
+
   if (error) return <span>{error}</span>;
 
   const handleLoaderComplete = () => {
@@ -37,13 +45,14 @@ function App() {
           resume={data?.profile.resume ?? ''}
           animate={animateHero}
         />
-        <About
-          about={data?.profile.about ?? ''}
-          profilePic={data?.profile.profilePic ?? ''}
-        />
-        <Experience jobs={data?.jobs ?? []} />
-        <Work projects={data?.projects ?? []} />
-        <Contact email={data?.email ?? ''} />
+        {data && (
+          <>
+            <About about={data.profile.about} profilePic={data.profile.profilePic} />
+            <Experience jobs={data.jobs} />
+            <Work projects={data.projects} />
+            <Contact email={data.email} />
+          </>
+        )}
       </main>
       <Footer profile={data?.profile ?? {} as never} />
     </>

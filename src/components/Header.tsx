@@ -88,9 +88,9 @@ const Header = ({ name, animate }: HeaderProps) => {
         onClick={() => setOpen((o) => !o)}
         aria-label="Toggle menu"
       >
-        <span className={`block w-5 h-px bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+        <span className={`block w-5 h-px bg-white transition-all duration-300 ${open ? 'rotate-45 translate-y-1.75' : ''}`} />
         <span className={`block w-5 h-px bg-white transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-        <span className={`block w-5 h-px bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+        <span className={`block w-5 h-px bg-white transition-all duration-300 ${open ? '-rotate-45 -translate-y-1.75' : ''}`} />
       </button>
 
       {/* Mobile menu */}
