@@ -73,7 +73,7 @@ const About = ({ about, profilePic }: AboutProps) => {
   return (
     <section ref={sectionRef} id="about" className="relative py-32 px-6">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-linear-to-b from-transparent via-white/20 to-transparent" />
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p ref={labelRef} className="text-xs font-mono tracking-[0.35em] text-[#4dd9ff] uppercase mb-5">
             About me

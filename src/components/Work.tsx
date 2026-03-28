@@ -15,20 +15,13 @@ const Work = ({ projects }: WorkProps) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(cardsRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
+        opacity: 0, y: 50, duration: 0.7, ease: 'power3.out', stagger: 0.12,
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' },
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [projects]);
 
   if (projects.length === 0) return null;
 
@@ -37,7 +30,7 @@ const Work = ({ projects }: WorkProps) => {
   return (
     <section ref={sectionRef} id="work" className="relative py-32 px-6">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-linear-to-b from-transparent via-white/20 to-transparent" />
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <p className="text-xs font-mono tracking-[0.35em] text-[#4dd9ff] uppercase mb-5">
           Projects
         </p>

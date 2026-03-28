@@ -6,7 +6,7 @@ interface CardProps {
 }
 
 const Card = ({ project, featured = false }: CardProps) => (
-  <article className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm hover:border-white/25 transition-all duration-500">
+  <article className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm hover:border-white/25 transition-all duration-500 h-full flex flex-col">
     <div className={`relative overflow-hidden ${featured ? 'aspect-video' : 'aspect-4/3'}`}>
       {project.imageLink ? (
         <img
@@ -19,12 +19,12 @@ const Card = ({ project, featured = false }: CardProps) => (
       )}
       <div className="absolute inset-0 bg-linear-to-t from-[#030314] via-[#030314]/40 to-transparent" />
     </div>
-    <div className="p-6">
+    <div className="p-6 flex flex-col flex-1">
       <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#4dd9ff] transition-colors duration-300">
         {project.name}
       </h3>
 
-      <p className="text-sm text-slate-400 leading-relaxed mb-4 line-clamp-2">
+      <p className="text-sm text-slate-400 leading-relaxed mb-4 line-clamp-2 flex-1">
         {project.description}
       </p>
       {project.tags?.list && project.tags.list.length > 0 && (
