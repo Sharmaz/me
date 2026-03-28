@@ -24,8 +24,8 @@ const Header = ({ name, animate }: HeaderProps) => {
     // Glass blur effect on scroll
     ScrollTrigger.create({
       start: 'top -80px',
-      onEnter: () => el.classList.add('scrolled'),
-      onLeaveBack: () => el.classList.remove('scrolled'),
+      onEnter: () => gsap.to(el, { backgroundColor: 'rgba(3,3,20,0.85)', backdropFilter: 'blur(16px)', duration: 0.4 }),
+      onLeaveBack: () => gsap.to(el, { backgroundColor: 'rgba(3,3,20,0.5)', backdropFilter: 'blur(8px)', duration: 0.4 }),
     });
 
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -50,11 +50,12 @@ const Header = ({ name, animate }: HeaderProps) => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-40 px-6 py-5 flex items-center justify-between transition-all duration-500 header-base"
+      className="fixed top-0 left-0 right-0 z-40 px-6 py-5 flex items-center justify-between border-b border-white/5"
+      style={{ backgroundColor: 'rgba(3,3,20,0.5)', backdropFilter: 'blur(8px)' }}
     >
       <a
         href="#"
-        className="text-sm font-mono tracking-[0.2em] text-white/70 hover:text-white uppercase transition-colors duration-300"
+        className="text-sm font-mono tracking-[0.2em] text-white hover:text-[#4dd9ff] uppercase transition-colors duration-300"
       >
         {name}
       </a>
@@ -64,7 +65,7 @@ const Header = ({ name, animate }: HeaderProps) => {
           <a
             key={label}
             href={href}
-            className="text-xs font-mono tracking-[0.2em] text-white/50 hover:text-[#4dd9ff] uppercase transition-colors duration-300"
+            className="text-xs font-mono tracking-[0.2em] text-white hover:text-[#4dd9ff] uppercase transition-colors duration-300"
           >
             {label}
           </a>
