@@ -79,12 +79,13 @@ const Experience = ({ jobs }: ExperienceProps) => {
                   <p className="text-slate-400 leading-relaxed text-sm">{job.description}</p>
 
                   {job.details?.list && job.details.list.length > 0 && (
-                    <ul className="mt-4 flex flex-wrap gap-2">
+                    <ul className="mt-4 flex flex-col gap-2">
                       {job.details.list.map((item) => (
                         <li
                           key={item}
-                          className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300"
+                          className="flex items-start gap-2 text-sm text-slate-400"
                         >
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[#4dd9ff] shrink-0" />
                           {item}
                         </li>
                       ))}
