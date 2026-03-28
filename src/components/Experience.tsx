@@ -25,24 +25,16 @@ const Experience = ({ jobs }: ExperienceProps) => {
         transformOrigin: 'top center',
         duration: 1.2,
         ease: 'power3.out',
-        scrollTrigger: { trigger: lineRef.current, start: 'top 80%' },
+        scrollTrigger: { trigger: lineRef.current, start: 'top 80%', toggleActions: 'play none none reverse' },
       });
-
       gsap.from(itemsRef.current, {
-        opacity: 0,
-        x: -40,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
+        opacity: 0, x: -40, duration: 0.7, ease: 'power3.out', stagger: 0.15,
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' },
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [jobs]);
 
   return (
     <section ref={sectionRef} id="experience" className="relative py-32 px-6">
@@ -84,7 +76,6 @@ const Experience = ({ jobs }: ExperienceProps) => {
                   </div>
 
                   <p className="text-sm font-medium text-[#a78bfa] mb-4">{job.name}</p>
-
                   <p className="text-slate-400 leading-relaxed text-sm">{job.description}</p>
 
                   {job.details?.list && job.details.list.length > 0 && (
