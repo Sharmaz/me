@@ -33,6 +33,7 @@ const usePortfolio = (): UsePortfolioResult => {
           jobs: [...json.jobs].sort(
             (a, b) => new Date(b.dateStarted).getTime() - new Date(a.dateStarted).getTime(),
           ),
+          projects: [...json.projects].reverse(),
         });
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
