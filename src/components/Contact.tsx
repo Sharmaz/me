@@ -22,7 +22,7 @@ const Contact = ({ email }: ContactProps) => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="relative py-40 px-6 text-center overflow-hidden">
+    <section ref={sectionRef} id="contact" className="relative py-40 px-6 text-center overflow-hidden z-10">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-linear-to-b from-transparent via-white/20 to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -44,7 +44,7 @@ const Contact = ({ email }: ContactProps) => {
         <a
           ref={linkRef}
           href={`mailto:${email}`}
-          className="inline-block text-lg md:text-2xl font-mono text-white/60 hover:text-white border-b border-white/20 hover:border-[#4dd9ff] pb-1 transition-all duration-300"
+          className="inline-block px-9 py-3.5 rounded-full bg-[#4dd9ff] text-[#030314] font-semibold text-sm tracking-wide hover:bg-white transition-colors duration-300"
         >
           {email}
         </a>
