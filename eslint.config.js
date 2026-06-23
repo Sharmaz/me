@@ -1,19 +1,12 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginJest from 'eslint-plugin-jest';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  { plugins: { jest: pluginJest } },
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'], plugins: { js }, extends: ['js/recommended'] },
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'], languageOptions: { globals: { ...globals.browser, ...globals.jest } } },
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'], languageOptions: { globals: { ...globals.browser } } },
   tseslint.configs.recommended,
-  {
-    rules: {
-      ...pluginJest.configs.recommended.rules,
-    },
-  },
   {
     rules: {
       indent: [

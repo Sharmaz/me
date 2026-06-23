@@ -1,29 +1,29 @@
+import { test, expect, vi, type Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import App from '../src/App';
 
-jest.mock('../src/hooks/usePortfolio', () => ({
+vi.mock('../src/hooks/usePortfolio', () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: vi.fn(),
 }));
 
-jest.mock('../src/hooks/useLenis', () => ({
+vi.mock('../src/hooks/useLenis', () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: vi.fn(),
 }));
 
-jest.mock('../src/components/HeroScene', () => ({
-  __esModule: true,
-  default: () => null,
-}));
-
-jest.mock('../src/components/SceneCanvas', () => ({
+vi.mock('../src/components/HeroScene', () => ({
   __esModule: true,
   default: () => null,
 }));
 
-jest.mock('../src/components/LoaderScramble', () => ({
+vi.mock('../src/components/SceneCanvas', () => ({
+  __esModule: true,
+  default: () => null,
+}));
+
+vi.mock('../src/components/LoaderScramble', () => ({
   __esModule: true,
   default: ({ onComplete: _onComplete }: { onComplete: () => void }) => (
     <div data-testid="loader">Loader</div>
@@ -32,7 +32,7 @@ jest.mock('../src/components/LoaderScramble', () => ({
 
 import usePortfolio from '../src/hooks/usePortfolio';
 
-const mockUsePortfolio = usePortfolio as jest.Mock;
+const mockUsePortfolio = usePortfolio as Mock;
 
 test('renders error state', () => {
   mockUsePortfolio.mockReturnValue({ data: null, error: 'Network error' });

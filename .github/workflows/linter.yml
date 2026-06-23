@@ -1,7 +1,7 @@
 name: ESlint Test
 on:
   pull_request:
-    branches: '**'
+    branches: ['**']
 
 jobs:
   build:

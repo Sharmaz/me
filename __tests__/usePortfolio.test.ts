@@ -1,10 +1,10 @@
+import { test, expect, vi, beforeEach } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import usePortfolio from '../src/hooks/usePortfolio';
 import type { PortfolioData } from '../src/types';
 
-jest.mock('../src/config', () => ({
+vi.mock('../src/config', () => ({
   config: {
     apiKey: 'test-api-key',
     baseUrl: 'http://localhost:8080',
@@ -64,11 +64,11 @@ const mockPortfolioData: PortfolioData = {
 };
 
 beforeEach(() => {
-  jest.resetAllMocks();
+  vi.resetAllMocks();
 });
 
 test('returns loading state initially', () => {
-  global.fetch = jest.fn(() => new Promise(() => {}));
+  global.fetch = vi.fn(() => new Promise(() => {}));
 
   const { result } = renderHook(() => usePortfolio());
 
@@ -78,7 +78,7 @@ test('returns loading state initially', () => {
 });
 
 test('returns portfolio data on success with jobs sorted by dateStarted descending', async () => {
-  global.fetch = jest.fn(() => Promise.resolve({
+  global.fetch = vi.fn(() => Promise.resolve({
     ok: true,
     json: () => Promise.resolve(mockPortfolioData),
   } as Response),
@@ -95,7 +95,7 @@ test('returns portfolio data on success with jobs sorted by dateStarted descendi
 });
 
 test('returns error on network failure', async () => {
-  global.fetch = jest.fn(() => Promise.reject(new Error('Network error')));
+  global.fetch = vi.fn(() => Promise.reject(new Error('Network error')));
 
   const { result } = renderHook(() => usePortfolio());
 
@@ -106,7 +106,7 @@ test('returns error on network failure', async () => {
 });
 
 test('returns error on non-ok response', async () => {
-  global.fetch = jest.fn(() => Promise.resolve({
+  global.fetch = vi.fn(() => Promise.resolve({
     ok: false,
     status: 401,
   } as Response),
