@@ -18,7 +18,12 @@ jest.mock('../src/components/HeroScene', () => ({
   default: () => null,
 }));
 
-jest.mock('../src/components/Loader', () => ({
+jest.mock('../src/components/SceneCanvas', () => ({
+  __esModule: true,
+  default: () => null,
+}));
+
+jest.mock('../src/components/LoaderScramble', () => ({
   __esModule: true,
   default: ({ onComplete: _onComplete }: { onComplete: () => void }) => (
     <div data-testid="loader">Loader</div>
@@ -39,7 +44,7 @@ test('renders error state', () => {
 
 test('renders loader on initial mount', () => {
   mockUsePortfolio.mockReturnValue({
-    data: { profile: { name: 'Ivan Robles', resume: '' } },
+    data: { profile: { name: 'Ivan Robles', resume: '' }, jobs: [], projects: [] },
     error: null,
   });
 
@@ -50,11 +55,11 @@ test('renders loader on initial mount', () => {
 
 test('renders hero content while loader is visible', () => {
   mockUsePortfolio.mockReturnValue({
-    data: { profile: { name: 'Ivan Robles', resume: '' } },
+    data: { profile: { name: 'Ivan Robles', resume: '' }, jobs: [], projects: [] },
     error: null,
   });
 
   render(<App />);
 
-  expect(screen.getByText('Ivan Robles')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Ivan Robles' })).toBeInTheDocument();
 });
