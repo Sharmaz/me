@@ -2,6 +2,8 @@ name: Unit Tests
 on:
   pull_request:
     branches: ['**']
+  push:
+    branches: ['**']
 
 permissions:
   contents: read
