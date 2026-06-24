@@ -27,10 +27,12 @@ const Experience = ({ jobs }: ExperienceProps) => {
         ease: 'power3.out',
         scrollTrigger: { trigger: lineRef.current, start: 'top 80%', toggleActions: 'play none none reverse' },
       });
-      gsap.from(itemsRef.current, {
-        opacity: 0, x: -40, duration: 0.7, ease: 'power3.out', stagger: 0.15,
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' },
-      });
+      if (itemsRef.current.length > 0) {
+        gsap.from(itemsRef.current, {
+          opacity: 0, x: -40, duration: 0.7, ease: 'power3.out', stagger: 0.15,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play none none reverse' },
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();

@@ -10,6 +10,7 @@ export default mergeConfig(viteConfig, defineConfig({
       provider: 'v8',
       reportsDirectory: 'coverage',
       include: ['src/**/*.{js,jsx,ts,tsx}'],
+      exclude: ['src/main.tsx', 'src/vite-env.d.ts'],
     },
   },
 }));
