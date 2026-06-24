@@ -13,6 +13,8 @@ const Work = ({ projects }: WorkProps) => {
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    if (projects.length === 0) return;
+
     const ctx = gsap.context(() => {
       gsap.from(cardsRef.current, {
         opacity: 0, y: 50, duration: 0.7, ease: 'power3.out', stagger: 0.12,
